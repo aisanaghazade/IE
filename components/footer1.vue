@@ -44,7 +44,7 @@
     background-color: #E0E0E0;
     position: relative;
     height: 230px;
-    bottom: -1100px;
+    bottom: -1200px;
     right: 0px;
     direction: rtl;
     width: 1300px;
@@ -53,7 +53,7 @@
 
 #partition{
     position: relative;
-    top: -20px;
+    top: 0px;
     display: block;
     list-style-type: none;
     width: 100%;
