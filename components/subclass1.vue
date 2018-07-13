@@ -1,8 +1,9 @@
 <template>
     <div id="subclass1">
-        <a v-for="s in subclass" :key="s" href="#" class="subclass">{{s.name}}<br>
-        <subclass2></subclass2>
-        </a>
+        <div v-for="s in subclass" :key="s" class="subclass">
+            <button class="button">{{s.name}}<br></button>
+        <subclass2 v-if="b != true"></subclass2>
+        </div>
     </div>
 </template>
 
@@ -15,7 +16,7 @@ export default {
     components:{
          subclass2
     }, 
-    props: [],
+    props: [{'b':true}],
     data() {
         return{
         subclass:[
@@ -34,5 +35,19 @@ export default {
     #subclass1{
         position: relative;
         right: 40px;
+    }
+    .subclass{
+        font-size: 90%;
+        color: rgb(126, 126, 126);
+    }
+    .subclass:hover{
+        text-decoration: none;
+        color: rgb(126, 126, 126);
+    }
+    .button{
+        border-style: none;
+        border-color: rgba(241,245,248);
+        padding: 0px;
+        background-color: rgba(241,245,248);
     }
 </style>

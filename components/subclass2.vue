@@ -30,7 +30,8 @@ export default {
     .subclass{
         color: rgb(167, 167, 167);
         direction: rtl;
-        font-size: 100%
+        font-size: 90%;
+        text-decoration: none;
     }
 </style>
 

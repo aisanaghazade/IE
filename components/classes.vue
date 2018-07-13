@@ -1,10 +1,11 @@
 <template>
     <div id = "class">
         <div id="subclass2">
-            <a v-for="s in subclass" :key="s" href="#" class="subclass3">{{s.name}}
-            <subclass1 class="subclass4"></subclass1>
+            <div v-for="s in subclass" :key="s" class="subclass3" v-on:click="scview">
+                <button class="button">{{s.name}}</button>
+            <subclass1 v-if="b != true" class="subclass4"></subclass1>
             
-            </a>
+            </div>
         </div>
     </div>
 </template>
@@ -15,7 +16,7 @@ export default {
     components:{
          subclass1
     }, 
-    props: [],
+    props: [{'b':true}],
     data() {
         return{
         subclass:[
@@ -23,8 +24,12 @@ export default {
             {address:'#', name:'زنانه'}
         ]
         }
+    },
+    methods: {
+        scview:function(){
+            this.b = !b;
+        }
     }
-    
   
 }
 
@@ -34,6 +39,13 @@ export default {
 .subclass3{
     
     color: rgb(80, 80, 80);
+    font-size: 100%;
+}
+.button{
+    border-style: none;
+    border-color: rgba(241,245,248);
+    padding: 0px;
+    background-color: rgba(241,245,248);
 }
 
 
