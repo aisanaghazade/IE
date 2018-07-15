@@ -1,60 +1,4 @@
 <template>
-    <tr v-for="(item) in rows" :key='item'>
-                <td class= "c11">
-                    <span class="img"><img class="image" src=""></span>
-                    <span class="info">
-                        <p class="text1">{{item.brandname}}</p>
-                        <p class = "text2">{{item.name1}} {{item.name2}} {{item.name3}}</p>
-                        <p class="text2">رنگ:{{item.color}}</p>
-                        <p class="text2">سایز:{{item.size}}</p>
-                        <p class="text2">کد کالا:{{item.code}}</p>
-                    </span>
-                </td>
-                <td class = "c21">
-                    <span><button id="plus" @click = "plus(item)">+</button></span>
-                    <span id="count"> {{item.count}} </span>
-                    <span><button id="plus" @click = "minus(item)">-</button></span>
-                    
-                </td>
-                <td class = "c31"></td>
-                <td class = "c41"></td>
-            </tr>
-</template>
-
-<script>
-  export default {
-    
-  }
-</script>
-
-<table>
-            <tr>
-                <td class= "c11">
-                    <span class="img"><img class="image" src=""></span>
-                    <span class="info">
-                        <p class="text1">{{brandname}}</p>
-                        <p class = "text2">{{name1}} {{name2}} {{name3}}</p>
-                        <p class="text2">رنگ:{{color}}</p>
-                        <p class="text2">سایز:{{size}}</p>
-                        <p class="text2">کد کالا:{{code}}</p>
-                    </span>
-                </td>
-                <td class = "c21">
-                    <span><button id="plus" @click = "plus()">+</button></span>
-                    <span id="count"> {{count}} </span>
-                    <span><button id="plus" @click = "minus()">-</button></span>
-                    
-                </td>
-                <td class = "c31"></td>
-                <td class = "c41"></td>
-            </tr>
-        </table>
-
-
-
-
-
-        <template>
     <div id = "table">
         <table id = 'table1'>
             <tr>
@@ -65,7 +9,7 @@
             </tr>
         </table>
         <div id = "rows">
-            <row v-for="r in rows" :key='r' ></row>
+            <row v-for="r in rows" :key='r' v-bind:item="r.item" v-bind:brandname="r.brandname" v-bind:name1='r.name1' v-bind:name2='r.name2' v-bind:name3='r.name3' v-bind:color='r.color' v-bind:size='r.size' v-bind:code='r.code' v-bind:src='r.src' v-bind:count='r.count'></row>
         </div>
     </div>
 </template>
@@ -81,7 +25,13 @@ export default {
             a:1,
             rows:[
                 {item: 1, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1},
-                {item: 2, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1}
+                {item: 2, brandname: 'adidas', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 37, code:'123456', scr:"", count:1},
+                {item: 1, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 38, code:'123456', scr:"", count:1},
+                {item: 2, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 39, code:'123456', scr:"", count:1},
+                {item: 1, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1},
+                {item: 2, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1},
+                {item: 1, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 39, code:'123456', scr:"", count:1},
+                {item: 2, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 40, code:'123456', scr:"", count:1}
             ]
         }
     }
@@ -91,18 +41,21 @@ export default {
 <style scoped>
 @import "../pages/CSSFiles/general.css";
 #rows{
-    position:absolute
+    position:absolute;
+    top: 34px;
+    left: 5px;
+    height:450px;
+    overflow-y: scroll;
 }
 #table{
     position: absolute;
     top: 400px;
     right: 150px;
-    width: 903px;
+    width: 905px;
     float: right;
     /* border-style: solid; */
     direction: rtl;
-    height: 450px;
-    overflow-y: scroll;
+    
 }
 
 #table1{
