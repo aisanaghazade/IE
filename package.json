@@ -11,8 +11,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.11",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "vuejs-datepicker": "^1.5.2"
   },
   "devDependencies": {
     "bootstrap": "^4.1.1",

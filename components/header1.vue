@@ -22,6 +22,7 @@
 
 <style scoped>
 @import '../pages/CSSFiles/general.css';
+
 </style>
 
 <script>

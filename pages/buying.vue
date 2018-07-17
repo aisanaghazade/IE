@@ -3,6 +3,7 @@
         <cart v-if="a == 0"></cart>
         <sending v-if="a == 1"></sending>
         <payment v-if="a == 2"></payment>
+        <button v-if="a != 2" id = "next"  @click = "plus()">ثبت و مرحله بعد</button>
     </div>
 </template>
 
@@ -18,6 +19,11 @@ export default {
         return{
             a:0
         }
+    },
+    methods:{
+        plus: function(){
+            this.a++;
+        }
     }
 }
 </script>
@@ -25,6 +31,17 @@ export default {
 <style scoped>
 
 @import "./CSSFiles/general.css";
+
+#next{
+    position: absolute;
+    top: 970px;
+    left: 200px;
+    width: 200px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: rgb(37, 37, 224);
+    color: white;
+}
 </style>
 
 

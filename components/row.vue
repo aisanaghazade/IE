@@ -1,5 +1,5 @@
 <template>
-    <div id = "row">
+    <div v-if="a==1" id = "row">
         <table>
             <tr>
                 <td class= "c11">
@@ -18,8 +18,25 @@
                     <span><button id="plus" @click = "minus()">-</button></span>
                     
                 </td>
-                <td class = "c31"></td>
-                <td class = "c41"></td>
+                <td class = "c31">
+                    <div id = "part1">
+                        <p>
+                            <span id = "span1">قیمت واحد</span>
+                            <spna id = "span2">{{cost}} تومان</spna>
+                        </p>
+                        <p>
+                            <span id = "span3">تخفیف </span>
+                            <spna id = "span4">{{c}} تومان </spna>
+                        </p>
+                        <p>
+                            <span id = "span5">قیمت نهایی </span>
+                            <spna id = "span6">{{d}} تومان </spna>
+                        </p>
+                    </div>
+                </td>
+                <td class = "c41">
+                    <button id="delete" @click = "del()"><img id="image1" src="../icons/delete.png"></button>
+                </td>
             </tr>
         </table>
     </div>
@@ -28,7 +45,7 @@
 <script>
 export default {
     props:[
-        'item', 'brandname', 'name1', 'name2', 'name3', 'color', 'size', 'code', 'count', 'source'
+        'item', 'brandname', 'name1', 'name2', 'name3', 'color', 'size', 'code', 'count', 'source','cost','discount'
     ],
     methods:{
         plus: function(){
@@ -38,6 +55,22 @@ export default {
             if (this.count > 1) {
                 this.count--;
             }
+        },
+        del: function(){
+            this.a--;
+        }
+    },
+    computed:{
+        c: function() {
+            return (this.cost*this.dicount);
+        },
+        d: function(){
+            return (this.cost - this.c);
+        }
+    },
+    data(){
+        return{
+            a:1
         }
     }
 }
@@ -46,6 +79,81 @@ export default {
 <style scoped>
 
 @import "../pages/CSSFiles/general.css";
+#part1{
+    position: relative;
+    direction: rtl;
+    width: 90%;
+    height: 30px;
+    margin-right: 5%;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+#span1{
+    text-align: right;
+    direction: rtl;
+    right: 0px;
+    /* border-style: solid; */
+    position: relative;
+    right: -80px;
+    top: -30px;
+}
+#span2{
+    text-align: left;
+    direction: rtl;
+    /* border-style: solid; */
+    position: relative;
+    right: 40px;
+    top: -40px;
+}
+
+#span3{
+    text-align: right;
+    direction: rtl;
+    right: 0px;
+    /* border-style: solid; */
+    position: relative;
+    right: -90px;
+    top: -40px;
+    color: rgb(255,0,100);
+}
+#span4{
+    text-align: left;
+    direction: rtl;
+    /* border-style: solid; */
+    position: relative;
+    right: 40px;
+    top: -40px;
+    color: rgb(255,0,100);
+}
+
+#span5{
+    text-align: right;
+    direction: rtl;
+    right: 0px;
+    /* border-style: solid; */
+    position: relative;
+    right: -80px;
+    top: -20px;
+}
+#span6{
+    text-align: left;
+    direction: rtl;
+    /* border-style: solid; */
+    position: relative;
+    right: 40px;
+    top: -20px;
+}
+
+#image1{
+    width: 10px;
+    height: 10px;
+}
+#delete{
+    width: 15px;
+    height: 15px;
+    background-color: rgba(241,245,248);
+    border-style: none;
+}
 #plus{
     border-radius: 100%;
     border-style: none;
@@ -115,7 +223,7 @@ export default {
 
 
 .c31{
-    width: 335px;
+    width: 332.5px;
     right: 3px;
     direction: rtl;
     text-align: center;
@@ -136,6 +244,8 @@ export default {
     border-left-style: solid;
     height: 150px;
     border-bottom-style: solid;
+    border-top-style: solid;
+    border-top-width: 0.2px;
     background-color: rgba(241,245,248);
 }
 

@@ -9,7 +9,7 @@
             </tr>
         </table>
         <div id = "rows">
-            <row v-for="r in rows" :key='r' v-bind:item="r.item" v-bind:brandname="r.brandname" v-bind:name1='r.name1' v-bind:name2='r.name2' v-bind:name3='r.name3' v-bind:color='r.color' v-bind:size='r.size' v-bind:code='r.code' v-bind:src='r.src' v-bind:count='r.count'></row>
+            <row v-for="r in rows" :key='r' v-bind:item="r.item" v-bind:brandname="r.brandname" v-bind:name1='r.name1' v-bind:name2='r.name2' v-bind:name3='r.name3' v-bind:color='r.color' v-bind:size='r.size' v-bind:code='r.code' v-bind:src='r.src' v-bind:count='r.count' v-bind:cost='r.cost' v-bind:discount='r.discount'></row>
         </div>
     </div>
 </template>
@@ -24,14 +24,14 @@ export default {
         return{
             a:1,
             rows:[
-                {item: 1, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1},
-                {item: 2, brandname: 'adidas', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 37, code:'123456', scr:"", count:1},
-                {item: 1, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 38, code:'123456', scr:"", count:1},
-                {item: 2, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 39, code:'123456', scr:"", count:1},
-                {item: 1, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1},
-                {item: 2, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1},
-                {item: 1, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 39, code:'123456', scr:"", count:1},
-                {item: 2, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 40, code:'123456', scr:"", count:1}
+                {item: 1, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1, discount:0.1, cost:10000},
+                {item: 2, brandname: 'adidas', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 37, code:'123456', scr:"", count:1, discount:0.1, cost:10000},
+                {item: 3, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 38, code:'123456', scr:"", count:1, discount:0.1, cost:10000},
+                {item: 4, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 39, code:'123456', scr:"", count:1, discount:0.1, cost:10000},
+                {item: 5, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1, discount:0.1, cost:10000},
+                {item: 6, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 36, code:'123456', scr:"", count:1, discount:0.1, cost:10000},
+                {item: 7, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 39, code:'123456', scr:"", count:1, discount:0.1, cost:10000},
+                {item: 8, brandname: 'nike', name1: 'name', name2: 'name', name3: 'name', color: 'black', size: 40, code:'123456', scr:"", count:1, discount:0.1, cost:10000}
             ]
         }
     }

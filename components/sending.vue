@@ -22,14 +22,57 @@
                 <img src="../icons/payment-black.png" class="image">
             </div>
         </div>
+        <div id="bailees">
+        <div class = "bailees" v-for="b in bailees" :key="b" >
+            <!-- <input type="radio" v-if="b.c == 1"> -->
+            <detailsail v-bind:c='b.c' v-bind:address='b.address' v-bind:bailee='b.bailee' v-bind:homenumber='b.homenumber' v-bind:phonenumber='b.phonenumber' v-bind:postalcode='b.postalcode'></detailsail>
+            </div>
+        </div>
+        <button id = "newaddress">اضافه کردن آدرس جدید</button>
+        <h5 id="time">زمان دریافت سفارش</h5>
+        <b-form-select v-model="selected" :options="options" id="time-select" />
+        <footer1></footer1>
+        
     </div>
 </template>
 
 <script>
-import header1 from '@/components/header1'
+import header1 from '@/components/header1';
+import footer1 from '@/components/footer1';
+import detailsail from '@/components/detailsail';
 export default {
     components: {
-        header1
+        header1, detailsail, footer1
+    },
+    data: function(){
+        return{
+            bailees:[
+                {c:1, index:0, address:'ازگل نوبهار جنوبی نبش سبلان', bailee:'آیسان آقازاده', homenumber:'02122191483', phonenumber:'09196774280', postalcode:'postalcode'},
+                {c:1, index:1, address:'ازگل نوبهار جنوبی نبش سبلان', bailee:'آیسان آقازاده', homenumber:'02122191483', phonenumber:'09196774280', postalcode:'postalcode'},
+                {c:1, index:2, address:'ازگل نوبهار جنوبی نبش سبلان', bailee:'آیسان آقازاده', homenumber:'02122191483', phonenumber:'09196774280', postalcode:'postalcode'},
+                {c:1, index:3, address:'ازگل نوبهار جنوبی نبش سبلان', bailee:'آیسان آقازاده', homenumber:'02122191483', phonenumber:'09196774280', postalcode:'postalcode'},
+                {c:1, index:4, address:'ازگل نوبهار جنوبی نبش سبلان', bailee:'آیسان آقازاده', homenumber:'02122191483', phonenumber:'09196774280', postalcode:'postalcode'},
+                {c:1, index:5, address:'ازگل نوبهار جنوبی نبش سبلان', bailee:'آیسان آقازاده', homenumber:'02122191483', phonenumber:'09196774280', postalcode:'postalcode'}
+            ],
+            selected: null,
+            options:[
+                { value: null, text: 'انتخاب کنید'},
+                { value: 'a', text: '1'},
+                { value: 'b', text: '2'},
+                { value: 'c', text: '3'},
+                { value: 'd', text: '4'}
+            ]
+        }
+    },
+    methods:{
+        del: function (i) {
+            for (let index = 0; index < this.bailees.length; index++) {
+                if (this.bailees[index] == i) {
+                    this.bailees[index].c--;
+                }
+                
+            }
+        }
     }
     
 }
@@ -37,6 +80,56 @@ export default {
 
 <style scoped>
 @import "../pages/CSSFiles/general.css";
+#time{
+    position: absolute;
+    top:800px;
+    right: 100px;
+}
+#time-select{
+    position: absolute;
+    top: 850px;
+    right: 100px;
+    width: 300px;
+    border-radius: 0px;
+    border-color: rgb(197, 197, 197);
+    background-color: rgba(241,245,248);
+    font-size: 80%;
+
+}
+#next{
+    position: absolute;
+    top: 970px;
+    left: 200px;
+    width: 200px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: rgb(37, 37, 224);
+    color: white;
+}
+#delete{
+    position: relative;
+    margin-bottom:70px;
+    right: -90px;
+}
+#newaddress{
+    position: absolute;
+    top: 750px;
+    left: 200px;
+    width: 200px;
+    border-radius: 20px;
+    border-style: none;
+    background-color: rgb(37, 37, 224);
+    color: white;
+}
+#bailees{
+    position: absolute;
+    top: 400px;
+    width: 1200px;
+    right: -50px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
 #cart{
     position: absolute;
     width: 1200px;

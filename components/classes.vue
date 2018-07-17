@@ -27,7 +27,7 @@ export default {
     },
     methods: {
         scview:function(){
-            this.b = !b;
+            this.b = !this.b;
         }
     }
   
