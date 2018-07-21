@@ -14,13 +14,10 @@
     >
 
       
-      <b-carousel-slide caption="product image 1" img-blank img-alt="Blank image">
-        
+      <b-carousel-slide v-for='b in banners' :key="b" caption="product image" img-blank img-alt="Blank image">
+          <img v-bind:src="b.bannerURL" v-bind:alt="b.bannerLink">
       </b-carousel-slide>
 
-       <b-carousel-slide caption="product image 2" img-blank img-alt="Blank image">
-        
-      </b-carousel-slide>
 
     </b-carousel>
 
@@ -29,11 +26,13 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
+      banners:[]
     }
   },
   methods: {
@@ -43,6 +42,16 @@ export default {
     onSlideEnd (slide) {
       this.sliding = false
     }
+  },
+  asyncData () {
+    axios.get('http://localhost:8003/homepagebanners')
+  .then(function(res){
+    this.banners = res.data.banners;
+    console.log(res.data);
+  })
+  .catch(function(error){
+    console.log(error);
+  });
   }
 }
 </script>
@@ -59,6 +68,7 @@ export default {
     right: 100px;
     top:140px;
     padding-left: 100px;
+    z-index: 0;
 }
 #carousel1{
     position: absolute;

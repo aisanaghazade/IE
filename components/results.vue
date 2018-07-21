@@ -13,7 +13,7 @@
         </span>
         <button id="nextP">صفحه بعد</button>
         <div id = "items">
-            <item v-for="i in items" :key="i" brandname='nike' name='running' Pbefore='100000' Pafter='90000' N='30' class="item"></item>
+            <item v-for="i in products" :key="i" brandname='nike' name='running' Pbefore='100000' Pafter='90000' N='30' class="item"></item>
             <item v-for="i in items" :key="i" brandname='nike' name='running' Pbefore='100000' Pafter='90000' N='30' class="item"></item>
             <item v-for="i in items" :key="i" brandname='nike' name='running' Pbefore='100000' Pafter='90000' N='30' class="item"></item>
         </div>
@@ -29,7 +29,7 @@ export default {
         item
     },
     props:[
-        'pagecount', 'pagenumber'
+        'pagecount', 'pagenumber','products'
     ],
   data () {
     return {

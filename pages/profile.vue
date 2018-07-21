@@ -51,6 +51,7 @@
             </div>
         </div>
         <button id=change>ثبت تغییرات</button>
+        <div id = "a">
         <div id="address"> 
             <span id="a1"> <h1> آدرس‌ها</h1></span>
             <span ><button id="a2" @click="showaddress()">+</button></span>
@@ -63,7 +64,18 @@
             </div>
             <button id = "newaddress">اضافه کردن آدرس جدید</button>
             </div>
+            <div>
+
+            </div>
+        </div>
+        <div id="orders"> 
+            <span id="a1"> <h1> سفارشات</h1></span>
+            <span ><button id="a3" @click="showorders()">+</button></span>
             
+            <div>
+                
+            </div>
+        </div>
         </div>
         <div id="footer"><footer1></footer1></div>
         
@@ -83,6 +95,7 @@ export default {
         return{
             user:{name: 'aisan aghazade', src:""},
             address:false,
+            orders:false,
             bailees:[
                 {c:1, index:0, address:'ازگل نوبهار جنوبی نبش سبلان', bailee:'آیسان آقازاده', homenumber:'02122191483', phonenumber:'09196774280', postalcode:'postalcode'},
                 {c:1, index:1, address:'ازگل نوبهار جنوبی نبش سبلان', bailee:'آیسان آقازاده', homenumber:'02122191483', phonenumber:'09196774280', postalcode:'postalcode'},
@@ -101,6 +114,13 @@ export default {
             }else{
                 this.address = true;
             }
+        },
+        showorders: function(){
+            if (this.orders) {
+                this.orders = false;
+            }else{
+                this.orders = true;
+            }
         }
     }
     
@@ -109,6 +129,11 @@ export default {
 
 <style scoped>
 @import "./CSSFiles/general.css";
+#a{
+    position: absolute;
+    top: 740px;
+    right: 100px;
+}
 #newaddress{
     position: relative;
     top: 200px;
@@ -154,10 +179,19 @@ export default {
     border-style: none;
     background-color: white;
 }
+#a3{
+    border-style: none;
+    background-color: white;
+}
 #address{
-    position: absolute;
-    top: 720px;
-    right: 100px;
+    position: relative;
+    top: 0px;
+    right: 0px;
+}
+#orders{
+    position: relative;
+    top: 240px;
+    right: 0px;
 }
 .text6{
     text-align: right;

@@ -32,15 +32,20 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
+plugins: [
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
+  '@nuxtjs/axios',
 	'bootstrap-vue/nuxt',
   ],
+
+  axios: {
+    // proxyHeaders: false
+  },
 
   /*
   ** Build configuration

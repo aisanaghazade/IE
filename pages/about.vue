@@ -2,11 +2,11 @@
     <div id="searchResult">
     <header1></header1>
     <div id = "classes">
-        <button class="minimize">-</button>
+        <button class="minimize" @click="show()">-</button>
         <h1 class="title"> 
             دسته‌بندی‌ها
         </h1>
-        <div id="classification">
+        <div id="classification" v-if="a==true">
             <classes id="class"></classes>
         </div>
     </div>
@@ -41,10 +41,16 @@ import classes from '@/components/classes';
 import Result from '@/components/results';
 import brands from '@/components/brands';
 import colorbox from '@/components/colorbox';
+import axios from 'axios';
 
 export default {
     components:{
         header1, footer1, classes, Result, brands, colorbox
+    },
+    data(){
+        return{
+            a:false
+        }
     },
     head: {
     // To use "this" in the component, it is necessary to return the object through a function
@@ -62,6 +68,18 @@ export default {
         {rel:'stylesheet', href:'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'}
     ],
     
+  },
+  methods:{
+      show: function () {
+          this.a = !this.a
+      }
+  },
+  asyncData () {
+    return axios.post('http://localhost:8003/products')
+  .then((res) => {
+      return {products: res.data}
+
+    })
   }
 }
 
